@@ -6,6 +6,7 @@ terraform {
       bucket = "devops-grooming"
       region = "ap-south-1"
       key = "mystate.tfstate"
+      # dynamodb_table = "mydynamo-tf-state-lock"
 }
 }
 terraform {

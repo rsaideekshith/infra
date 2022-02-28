@@ -1,20 +1,7 @@
-module "mysg_calling_module" {
-  source = "git@github.com:rsaideekshith/terraform-modules.git//sg-module"
+module "my_sg_calling_module" {
+  source = "git@github.com:rsaideekshith/terraform-modules.git//sg-module?ref=main"
 
-  name        = "mysg"
-  description = "Security group for mysg within VPC"
-  vpc_id      =  module.mysg_calling_module.outputs.myvpc_id
+  vpc_id      =  module.myvpc_calling_module.myvpc_id
 
-  cidr_block = [var.public_subnet_cidr_block]
+  public_subnet_cidr_block = module.my_public_subnet_calling_module.my_public_subnet_cidr_block
 }
-ingress_with_cidr_blocks = [
-    {
-
-    description      = "SSH into VPC"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = [var.public_subnet_cidr_block]
-
-    }
-]
