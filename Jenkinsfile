@@ -3,17 +3,17 @@ pipeline {
   tools {
       terraform "Terraform-1.1.6"
   }
-  environment {
-        AWS_ACCESS_KEY_ID     = credentials('AKIAQJC5LZFL5N4RLMYZ')
-        AWS_SECRET_ACCESS_KEY = credentials('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')
-        TF_IN_AUTOMATION      = '1'
-    }
 
   stages {
     stage('Git Checkout') {
       steps {
         git branch: 'main', credentialsId: 'gitHUB', url: 'git@github.com:rsaideekshith/infra.git'
       }
+    }
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('AKIAQJC5LZFL5N4RLMYZ')
+        AWS_SECRET_ACCESS_KEY = credentials('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')
+        TF_IN_AUTOMATION      = '1'
     }
 
     stage('Terraform Init') {
