@@ -9,7 +9,7 @@ pipeline {
       steps {
         git branch: 'main', credentialsId: 'gitHUB', url: 'git@github.com:rsaideekshith/infra.git'
       }
-    
+    }
     stage('Terraform Init') {
       steps {
         sh label: '', script: 'terraform init'
