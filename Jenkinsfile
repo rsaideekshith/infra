@@ -1,8 +1,13 @@
 pipeline {
   agent any
   tools {
-      terraform "Terraform-1.1.6"
+      terraform "Terraform1.0.0"
   }
+  environment {
+        AWS_ACCESS_KEY_ID     = credentials('AKIAQJC5LZFL5N4RLMYZ')
+        AWS_SECRET_ACCESS_KEY = credentials('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')
+        TF_IN_AUTOMATION      = '1'
+    }
 
   stages {
     stage('Git Checkout') {
@@ -16,17 +21,11 @@ pipeline {
         sh label: '', script: 'terraform init'
       }
     }
-    stage('Terraform plan') {
-        steps {
-            sh label: '', script: 'terraform plan'
-        }
-    }
     
     stage('Terraform apply') {
       steps {
-        sh label: '', script: 'terraform apply --var-file=dev.tfvars'
+        sh label: '', script: 'terraform apply --var-file = def.tfvars'
       }
     }
   }
 }
-
