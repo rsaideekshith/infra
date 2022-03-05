@@ -5,7 +5,7 @@ pipeline {
   }
 
   stages {
-    stage('Git Checkout') {
+    stage('SCM Checkout') {
       steps {
         git branch: 'main', credentialsId: 'gitHUB', url: 'git@github.com:rsaideekshith/infra.git'
       }
