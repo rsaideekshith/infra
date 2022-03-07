@@ -1,5 +1,6 @@
 module "myec2_calling_module" {
-    source = "git@github.com:rsaideekshith/terraform-modules.git//ec2-module?ref=main"
+    source = "github.com/rsaideekshith/terraform-modules/ec2-module"
+
     
     instance_count = var.instance_count
 

@@ -1,5 +1,6 @@
 module "my_sg_calling_module" {
-  source = "git@github.com:rsaideekshith/terraform-modules.git//sg-module?ref=main"
+  source = "github.com/rsaideekshith/terraform-modules/sg-module"
+
 
   vpc_id      =  module.myvpc_calling_module.myvpc_id
 
