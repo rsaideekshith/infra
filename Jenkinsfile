@@ -10,12 +10,20 @@ pipeline {
         git branch: 'main', credentialsId: 'gitHUB', url: 'git@github.com:rsaideekshith/infra.git'
       }
     }
-
-    stage('Terraform Init') {
+    
+     stage('Terraform Init') {
       steps {
         sh label: '', script: 'terraform init'
       }
     }
+
+     stage('Terraform Plan') {
+      steps {
+        sh label: '', script: 'terraform plan'
+      }
+    }
+    
+
     
     stage('Terraform apply') {
       steps {
