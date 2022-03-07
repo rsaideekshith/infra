@@ -5,7 +5,7 @@ module "my_public_subnet_calling_module" {
     source = "github.com/rsaideekshith/terraform-modules/subnet-module"
 
 
-    vpc_id = module.myvpc_calling_module.outputs.myvpc_id
+    vpc_id = module.myvpc_calling_module.myvpc_id
     subnet_cidr_block = var.public_subnets[count.index]
     project = "INFRA_TRAINING"  
 }
@@ -16,7 +16,7 @@ module "my_private_subnet_calling_module" {
     #           0            1                 2
     source = "github.com/rsaideekshith/terraform-modules/subnet-module"
 
-    vpc_id = module.myvpc_calling_module.outputs.myvpc_id
+    vpc_id = module.myvpc_calling_module.myvpc_id
     subnet_cidr_block = var.private_subnets[count.index]
     project = "INFRA_TRAINING"
 }
