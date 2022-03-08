@@ -8,16 +8,5 @@ module "myec2_calling_module" {
     # ami_id = var.ami_id
 
     project = "MY_TF_PRO"
-    
-
-
-     
-
-    
-
-
-    
-
-
-
+  public_subnet_id = module.my_public_subnet_calling_module.my_public_subnet_id
 }
