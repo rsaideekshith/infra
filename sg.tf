@@ -1,6 +1,7 @@
 module "my_sg_calling_module" {
   source = "github.com/rsaideekshith/terraform-modules/sg-module"
+  name = "my_security_group"
+  vpc_id = module.my_sg_calling_module.vpc_id
+   cidr_blocks      =  ["10.20.0.0/25"]
 
-  vpc_id      =  module.myvpc_calling_module.myvpc_id
-  public_subnet_cidr_block = module.my_public_subnet_calling_module.my_public_subnet_cidr_block
 }
