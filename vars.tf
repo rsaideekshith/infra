@@ -22,16 +22,8 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "public_subnets" {
-  type = list(string)
-  description = "list of subnets"
-  default = [ "10.20.0.0/28", "10.20.0.16/28", "10.20.0.32/28" ]
-}
-variable "private_subnets" {
-   type = list(string)
-   description = "list of private subnets"
-  default = [ "10.0.0.64/28", "10.0.0.80/28", "10.0.0.96/28" ]
- }
+
+
 
 
 # 10.20.0.0/25 = 128 IP's : VPC CIDR Block - (ap-south-1) - Mumbai - 3 AZ's (1a,1b,1c)
