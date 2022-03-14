@@ -8,6 +8,5 @@ module "myvpc_calling_module" {
 
   vpc_cidr_block = "10.20.0.0/25"
   
-    project = "INFRA_TRAINING"
 
 }
